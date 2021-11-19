@@ -5,11 +5,13 @@
     <title>你好，GitHub</title>
   </head>
   <body>
-    <h1>覺得厲害</h1>
+    <h1 id="test">覺得厲害</h1>
   </body>
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2/dist/fingerprint2.min.js">
-  var deviceID = MediaDeviceInfo.deviceId;
-  console.log(deviceID);
+  Fingerprint2.get(function (components) {
+    var values = components.map(function (component) { return component.value })
+    document.getElementById("test").innerHTML = Fingerprint2.x64hash128(values.join(''), 31)
+  })
 </script>
