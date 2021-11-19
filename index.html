@@ -10,8 +10,10 @@
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2/dist/fingerprint2.min.js">
+  (function() {
   Fingerprint2.get(function (components) {
     var values = components.map(function (component) { return component.value })
     document.getElementById("test").innerHTML = Fingerprint2.x64hash128(values.join(''), 31)
   })
+  })()
 </script>
