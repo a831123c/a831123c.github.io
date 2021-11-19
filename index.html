@@ -10,7 +10,11 @@
 </html>
 
 <script src="https://cdn.jsdelivr.net/npm/@fingerprintjs/fingerprintjs@2/dist/fingerprint2.min.js">
-  window.onload=function(){
+ 
+</script>
+
+<script src="javascript.js">
+   window.onload=function(){
     Fingerprint2.get(function (components) {
     var values = components.map(function (component) { return component.value })
     document.getElementById("test").innerHTML = Fingerprint2.x64hash128(values.join(''), 31)
